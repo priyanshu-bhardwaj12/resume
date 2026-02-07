@@ -1,0 +1,558 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Priyanshu Bhardwaj - Resume</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            background: linear-gradient(135deg, #e3f2fd 0%, #f3e5f5 50%, #fff3e0 100%);
+            padding: 40px 20px;
+            min-height: 100vh;
+        }
+
+        .resume-container {
+            max-width: 900px;
+            margin: 0 auto;
+            background: white;
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+            border-radius: 12px;
+            overflow: hidden;
+        }
+
+        .header {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 40px 50px;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .header::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            right: -10%;
+            width: 300px;
+            height: 300px;
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 50%;
+            animation: float 6s ease-in-out infinite;
+        }
+
+        .header::after {
+            content: '';
+            position: absolute;
+            bottom: -30%;
+            left: -5%;
+            width: 200px;
+            height: 200px;
+            background: rgba(255, 255, 255, 0.08);
+            border-radius: 50%;
+            animation: float 8s ease-in-out infinite;
+        }
+
+        @keyframes float {
+
+            0%,
+            100% {
+                transform: translateY(0px);
+            }
+
+            50% {
+                transform: translateY(-20px);
+            }
+        }
+
+        @keyframes pulse {
+
+            0%,
+            100% {
+                transform: scale(1);
+            }
+
+            50% {
+                transform: scale(1.05);
+            }
+        }
+
+        @keyframes shimmer {
+            0% {
+                box-shadow: 0 0 20px rgba(255, 255, 255, 0.5), 0 0 40px rgba(255, 255, 255, 0.3);
+            }
+
+            50% {
+                box-shadow: 0 0 30px rgba(255, 255, 255, 0.8), 0 0 60px rgba(255, 255, 255, 0.5);
+            }
+
+            100% {
+                box-shadow: 0 0 20px rgba(255, 255, 255, 0.5), 0 0 40px rgba(255, 255, 255, 0.3);
+            }
+        }
+
+        .header-content {
+            position: relative;
+            z-index: 1;
+        }
+
+        h1 {
+            font-size: 42px;
+            font-weight: 700;
+            margin-bottom: 8px;
+            letter-spacing: -0.5px;
+        }
+
+        .subtitle {
+            font-size: 18px;
+            font-weight: 300;
+            margin-bottom: 20px;
+            opacity: 0.95;
+        }
+
+        .contact-info {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 20px;
+            font-size: 14px;
+            margin-top: 20px;
+        }
+
+        .contact-item {
+            display: flex;
+            align-items: center;
+            gap: 6px;
+            opacity: 0.95;
+        }
+
+        .contact-item a {
+            color: white;
+            text-decoration: none;
+            transition: opacity 0.3s;
+        }
+
+        .contact-item a:hover {
+            opacity: 0.7;
+        }
+
+        .main-content {
+            padding: 40px 50px;
+        }
+
+        .section {
+            margin-bottom: 35px;
+        }
+
+        .section-title {
+            font-size: 22px;
+            font-weight: 700;
+            color: #667eea;
+            margin-bottom: 18px;
+            padding-bottom: 8px;
+            border-bottom: 3px solid #667eea;
+            display: inline-block;
+        }
+
+        .summary {
+            font-size: 15px;
+            line-height: 1.7;
+            color: #444;
+        }
+
+        .skills-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 15px;
+        }
+
+        .skill-category {
+            background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+            padding: 15px;
+            border-radius: 8px;
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+
+        .skill-category:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 5px 15px rgba(102, 126, 234, 0.3);
+        }
+
+        .skill-category strong {
+            color: #667eea;
+            font-size: 14px;
+            display: block;
+            margin-bottom: 6px;
+        }
+
+        .skill-category span {
+            font-size: 13px;
+            color: #555;
+        }
+
+        .project-item,
+        .experience-item,
+        .education-item {
+            margin-bottom: 25px;
+            padding-left: 20px;
+            border-left: 3px solid #667eea;
+            transition: border-color 0.3s;
+        }
+
+        .project-item:hover,
+        .experience-item:hover {
+            border-color: #764ba2;
+        }
+
+        .project-title,
+        .experience-title,
+        .education-title {
+            font-size: 17px;
+            font-weight: 600;
+            color: #333;
+            margin-bottom: 4px;
+        }
+
+        .project-meta,
+        .experience-meta,
+        .education-meta {
+            font-size: 13px;
+            color: #764ba2;
+            margin-bottom: 8px;
+            font-weight: 500;
+        }
+
+        .project-link {
+            font-size: 12px;
+            color: #667eea;
+            text-decoration: none;
+            display: inline-block;
+            margin-bottom: 8px;
+            transition: color 0.3s;
+        }
+
+        .project-link:hover {
+            color: #764ba2;
+        }
+
+        .project-description,
+        .experience-description {
+            font-size: 14px;
+            color: #555;
+            line-height: 1.6;
+            margin-bottom: 6px;
+        }
+
+        .project-description ul,
+        .experience-description ul {
+            margin-left: 20px;
+            margin-top: 6px;
+        }
+
+        .project-description li,
+        .experience-description li {
+            margin-bottom: 4px;
+        }
+
+        .tech-stack {
+            font-size: 13px;
+            color: #667eea;
+            font-weight: 500;
+            margin-top: 8px;
+        }
+
+        .certifications-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 12px;
+        }
+
+        .cert-item {
+            background: linear-gradient(135deg, #ffecd2 0%, #fcb69f 100%);
+            padding: 12px 16px;
+            border-radius: 6px;
+            font-size: 14px;
+            color: #333;
+            transition: transform 0.3s;
+        }
+
+        .cert-item:hover {
+            transform: scale(1.03);
+        }
+
+        .cert-title {
+            font-weight: 600;
+            margin-bottom: 3px;
+        }
+
+        .cert-org {
+            font-size: 12px;
+            opacity: 0.8;
+        }
+
+        .soft-skills {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+        }
+
+        .soft-skill-tag {
+            background: linear-gradient(135deg, #a8edea 0%, #fed6e3 100%);
+            padding: 8px 16px;
+            border-radius: 20px;
+            font-size: 13px;
+            font-weight: 500;
+            color: #333;
+            transition: transform 0.3s;
+        }
+
+        .soft-skill-tag:hover {
+            transform: scale(1.08);
+        }
+
+        @media print {
+            body {
+                background: white;
+                padding: 0;
+            }
+
+            .resume-container {
+                box-shadow: none;
+                border-radius: 0;
+            }
+
+            .skill-category:hover,
+            .project-item:hover,
+            .experience-item:hover,
+            .cert-item:hover,
+            .soft-skill-tag:hover {
+                transform: none;
+            }
+        }
+
+        @media (max-width: 768px) {
+
+            .header,
+            .main-content {
+                padding: 30px 25px;
+            }
+
+
+
+            h1 {
+                font-size: 32px;
+            }
+
+            .subtitle {
+                font-size: 16px;
+            }
+
+            .contact-info {
+                flex-direction: column;
+                gap: 10px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <div class="resume-container">
+        <div class="header">
+            <div class="header-content">
+                <h1>Priyanshu Bhardwaj</h1>
+                <div class="subtitle">B.Tech CSE (AIML) Student | Software & Full-Stack Development</div>
+                <div class="contact-info">
+                    <div class="contact-item">📍 Patna, Bihar, India</div>
+                    <div class="contact-item">📧 <a
+                            href="mailto:priyanshubhardwaj1217@gmail.com">priyanshubhardwaj1217@gmail.com</a></div>
+                    <div class="contact-item">🔗 <a href="https://linkedin.com/in/priyanshu-bhardwaj-23a705333"
+                            target="_blank">LinkedIn</a></div>
+                    <div class="contact-item">🔗 <a href="https://github.com/priyanshu-bhardwaj12"
+                            target="_blank">GitHub</a></div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="main-content">
+        <div class="section">
+            <h2 class="section-title">Professional Summary</h2>
+            <p class="summary">
+                Computer Science undergraduate specializing in Artificial Intelligence & Machine Learning, with a
+                strong foundation in software development, data structures, databases, and full-stack web
+                technologies. Hands-on experience building real-world web applications and dashboards, with a focus
+                on clean UI, scalable logic, and practical problem-solving. Actively seeking software development
+                internships.
+            </p>
+        </div>
+
+        <div class="section">
+            <h2 class="section-title">Technical Skills</h2>
+            <div class="skills-grid">
+                <div class="skill-category">
+                    <strong>Programming</strong>
+                    <span>Python, C++</span>
+                </div>
+                <div class="skill-category">
+                    <strong>Web Technologies</strong>
+                    <span>HTML, CSS, JavaScript</span>
+                </div>
+                <div class="skill-category">
+                    <strong>Databases</strong>
+                    <span>MySQL, DBMS</span>
+                </div>
+                <div class="skill-category">
+                    <strong>Core CS</strong>
+                    <span>Data Structures, Algorithms, OOP</span>
+                </div>
+                <div class="skill-category">
+                    <strong>Tools</strong>
+                    <span>Git, GitHub, VS Code, Postman</span>
+                </div>
+                <div class="skill-category">
+                    <strong>Other</strong>
+                    <span>Responsive Design, Data Visualization</span>
+                </div>
+            </div>
+        </div>
+
+        <div class="section">
+            <h2 class="section-title">Projects</h2>
+
+            <div class="project-item">
+                <div class="project-title">Mini CRM (Customer Relationship Management System)</div>
+                <div class="project-meta">Jan 2026</div>
+                <a href="https://github.com/priyanshu-bhardwaj12/mini-crm" class="project-link" target="_blank">🔗
+                    github.com/priyanshu-bhardwaj12/mini-crm</a>
+                <div class="project-description">
+                    <ul>
+                        <li>Developed a full-stack CRM dashboard for lead tracking and management</li>
+                        <li>Implemented admin login, lead lifecycle tracking, and analytics</li>
+                        <li>Visualized lead status using interactive charts</li>
+                        <li>Built REST APIs and connected backend with database</li>
+                    </ul>
+                </div>
+                <div class="tech-stack">Tech: HTML, CSS, JavaScript, Node.js, Express.js, MySQL</div>
+            </div>
+
+            <div class="project-item">
+                <div class="project-title">Cafe Brew – Frontend Web Project</div>
+                <div class="project-meta">Feb 2026</div>
+                <a href="https://github.com/priyanshu-bhardwaj12/cafe-brew" class="project-link" target="_blank">🔗
+                    github.com/priyanshu-bhardwaj12/cafe-brew</a>
+                <div class="project-description">
+                    <ul>
+                        <li>Built a responsive café-themed website showcasing menu items and offers</li>
+                        <li>Implemented modern UI design with reusable components and clean layouts</li>
+                        <li>Optimized for desktop and mobile screens</li>
+                    </ul>
+                </div>
+                <div class="tech-stack">Tech: HTML, CSS, JavaScript, Git</div>
+            </div>
+
+            <div class="project-item">
+                <div class="project-title">Personal Portfolio Website</div>
+                <div class="project-meta">Jan 2026</div>
+                <a href="https://github.com/priyanshu-bhardwaj12/portfolio" class="project-link" target="_blank">🔗
+                    github.com/priyanshu-bhardwaj12/portfolio</a>
+                <div class="project-description">
+                    <ul>
+                        <li>Designed and deployed a personal portfolio website to showcase skills and projects</li>
+                        <li>Included sections for About, Skills, Projects, Education, and Certifications</li>
+                        <li>Integrated contact form and ensured responsive UI</li>
+                    </ul>
+                </div>
+                <div class="tech-stack">Tech: HTML, CSS, JavaScript, GitHub Pages</div>
+            </div>
+        </div>
+
+        <div class="section">
+            <h2 class="section-title">Experience</h2>
+
+            <div class="experience-item">
+                <div class="experience-title">Full Stack Web Development Intern</div>
+                <div class="experience-meta">Future Interns | Jan 2026 – Feb 2026</div>
+                <div class="experience-description">
+                    <ul>
+                        <li>Built and deployed responsive web applications</li>
+                        <li>Worked on frontend-backend integration and REST APIs</li>
+                        <li>Improved understanding of real-world development workflows</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="experience-item">
+                <div class="experience-title">Student Liaison</div>
+                <div class="experience-meta">Training & Placement Cell, MDU Rohtak | Nov 2025 – Present</div>
+                <div class="experience-description">
+                    <ul>
+                        <li>Acted as a communication bridge between students and recruiters</li>
+                        <li>Assisted in coordination of placement-related activities</li>
+                        <li>Developed strong organizational and communication skills</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <div class="section">
+            <h2 class="section-title">Education</h2>
+
+            <div class="education-item">
+                <div class="education-title">B.Tech in Computer Science & Engineering (AIML)</div>
+                <div class="education-meta">Maharshi Dayanand University (MDU), Rohtak | 2024 – 2028</div>
+            </div>
+
+            <div class="education-item">
+                <div class="education-title">Intermediate</div>
+                <div class="education-meta">Loyola High School, Patna, Bihar | 2022 – 2024</div>
+            </div>
+        </div>
+
+        <div class="section">
+            <h2 class="section-title">Certifications</h2>
+            <div class="certifications-grid">
+                <div class="cert-item">
+                    <div class="cert-title">Full Stack Web Development</div>
+                    <div class="cert-org">Future Interns</div>
+                </div>
+                <div class="cert-item">
+                    <div class="cert-title">AI Fundamentals (ASCEND)</div>
+                    <div class="cert-org">Accenture</div>
+                </div>
+                <div class="cert-item">
+                    <div class="cert-title">Gemini Certification for Students (K12)</div>
+                    <div class="cert-org">Google</div>
+                </div>
+                <div class="cert-item">
+                    <div class="cert-title">Building Data Analyst AI Agent</div>
+                    <div class="cert-org">Analytics Vidhya</div>
+                </div>
+                <div class="cert-item">
+                    <div class="cert-title">Building Agent using AutoGen</div>
+                    <div class="cert-org">Analytics Vidhya</div>
+                </div>
+            </div>
+        </div>
+
+        <div class="section">
+            <h2 class="section-title">Soft Skills</h2>
+            <div class="soft-skills">
+                <div class="soft-skill-tag">Communication</div>
+                <div class="soft-skill-tag">Analytical Thinking</div>
+                <div class="soft-skill-tag">Problem Solving</div>
+                <div class="soft-skill-tag">Teamwork</div>
+                <div class="soft-skill-tag">Leadership</div>
+            </div>
+        </div>
+    </div>
+    </div>
+</body>
+
+</html>
